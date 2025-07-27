@@ -1,0 +1,11 @@
+KLayout (GDS View)
+
+Displays a more refined and final layout, closer to fabrication.
+
+Green, Blue, and Yellow lines: Represent different metal layers used for routing.
+
+Pink and Brown areas: Indicate transistor active regions (diffusion areas).
+
+Cyan-colored shapes: Show power and ground rails.
+
+Structured grid view: Ensures alignment with the fabrication process.

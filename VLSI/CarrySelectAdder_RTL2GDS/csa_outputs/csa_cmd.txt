@@ -1,0 +1,66 @@
+GTKWave:(In Windows)
+
+cd C:\Users\aldri\Documents\verilog
+
+iverilog -o tb_csa tb_csa.v csa.v
+
+vvp tb_csa
+
+gtkwave tb_csa.vcd
+
+
+Yosys:
+
+wsl -d Ubuntu
+
+cd /
+
+cd sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files
+
+Yosys
+
+read_liberty -lib 
+/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog /sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/csa.v
+
+synth -top csa
+
+abc -liberty /sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show -format ps
+
+
+
+sudo -i
+
+cd /root
+
+ls -la
+
+# cp /root/.yosys_show.dot ~/yosys_graph.dot
+
+
+
+dot -Tpng /root/.yosys_show.dot -o csa.png
+
+xdg-open csa.png
+
+
+OpenLane:
+
+cd OpenLane
+
+sudo make mount
+
+flow.tcl -design csa
+
+sudo magic -T /open_pdks/sky130/magic/sky130.tech lef read /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/tmp/merged.min.lef def read /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/results/floorplan/csa.def &
+
+sudo magic -T /open_pdks/sky130/magic/sky130.tech lef read /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/tmp/merged.min.lef def read /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/results/placement/csa.def &
+
+sudo magic -T /open_pdks/sky130/magic/sky130.tech lef read /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/tmp/merged.min.lef def read /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/results/routing/csa.def &
+
+sudo magic -T /open_pdks/sky130/magic/sky130.tech /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/results/final/mag/csa.mag
+
+sudo klayout /OpenLane/designs/csa/runs/RUN_XXXXXXXXXX/results/final/gds/csa.gds
