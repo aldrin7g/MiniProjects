@@ -1,0 +1,14 @@
+Symbol: ,, Probability: 0.195475, Code: 0
+Symbol:  , Probability: 0.195475, Code: 10
+Symbol: 1, Probability: 0.119437, Code: 110
+Symbol: ], Probability: 0.065401, Code: 1110
+Symbol: [, Probability: 0.065401, Code: 11110
+Symbol: 2, Probability: 0.060988, Code: 111110
+Symbol: 3, Probability: 0.041447, Code: 1111110
+Symbol: 4, Probability: 0.041341, Code: 11111110
+Symbol: 5, Probability: 0.040961, Code: 111111110
+Symbol: 0, Probability: 0.037512, Code: 1111111110
+Symbol: 9, Probability: 0.034822, Code: 11111111110
+Symbol: 6, Probability: 0.034359, Code: 111111111110
+Symbol: 8, Probability: 0.034053, Code: 1111111111110
+Symbol: 7, Probability: 0.033327, Code: 1111111111111
